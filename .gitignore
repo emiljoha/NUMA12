@@ -1,6 +1,8 @@
 # TeX files
 *.aux
 *.pdf
+*.log
+*.out
 
 # emacs files
 *~
