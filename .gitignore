@@ -1,0 +1,6 @@
+# TeX files
+*.aux
+*.pdf
+
+# emacs files
+*~
