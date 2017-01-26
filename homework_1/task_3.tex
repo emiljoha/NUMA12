@@ -4,16 +4,18 @@ What point of the plane $3x + 2y+ z = 6$ in $\mathbb{R}^3$ is closest to the ori
 
 \begin{solution}
 \begin{enumerate}
-	\item 1 norm $\lVert x \rVert_1 = \sum_{i = 1}^n x_i$
+	\item 1-norm $\lVert x \rVert_1 = \sum_{i = 1}^n \lvert x_i \rvert$
 	
-	\item 2 norm $\lVert x \rVert_2 = \sqrt{\sum_{i = 1}^n x_i^2}$
+	In this case we want to minimize the sum of the components of the point, a reasonable approach for that is to take the component that has the maximum coefficient on the plane equation and solve the equation by chosing the rest of the components as zeros. In our scenario the maximum coefficient is 3, therefore we let $y$ and $z$ be 0 and solve the equation $3x = 6$, obtaining the point $(2,\, 0,\, 0)$
 	
-	\item infinity norm $\max_x x_i$
+	\item 2-norm $\lVert x \rVert_2 = \sqrt{\sum_{i = 1}^n x_i^2}$
 	
+	We know from Linear Algebra that the minimum distance between a point and a plane is obtained by the orthogonal projection of the point onto the plane. The orthogonal vector to our plane is $(3,\, 2,\, 1)$. With this vector and the point $(0,\,0,\,0)$ we obtain the equation of the line that is orthogonal to the plane and goes through the origin. By intersecting this line with the plane we obtain the point that we are looking for, which is $(\frac{9}{7},\, \frac{6}{7},\,\frac{3}{7})$.
+	\item $\infty$-norm $\lVert x \rVert_{\infty} = \max_{i = 1:n} \lvert x_i \rvert$
+	
+	Finally we want to minimize the maximum value of the components of a point. A reasonable approach to that problem is to ''spread" the components of the point as much as possible. We take the point $(1,\, 1,\, 1)$ and see that whenever we want to lower one of the components, at least one of the others has to be increased in order to remain on the plane (ie. $(0.9,\, 1,\, 1.3)$ which gives a higher norm) therefore we conclude that our choice is the optimal one.
 \end{enumerate}
 \end{solution}
-
- 	
 
 %%% Local Variables:
 %%% TeX-master: "report.tex"
