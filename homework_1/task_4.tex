@@ -1,14 +1,36 @@
 \begin{problem}
-This is a sample Problem. with parts
+  Let $\mathcal{A} = \{a \in \mathds{R}^2 : \|\|a\|\|_2 \leq1 \}$,
+  but let the $\infty$-norm be used as distance function.
+
 \begin{enumerate}
-\item[Bonus:] part 1. This part has the custom name "Bonus:
- instead of a number.
-\item part 2
+\item Draw a diagram to show the best approximation in $\mathcal{A}$
+  to a general point in $\mathds{R}^2$.  instead of a number.
+\item Verify that the best approximation operator from $\mathds{R}^n$
+  to $\mathcal{A}$ is continuous.
 \end{enumerate}
+
 \end{problem}
 
 \begin{solution}
-  
+\begin{enumerate}
+\item The best approximation to a general point $f \in \mathds{R}^2$
+  the intersection between the line $\alpha(f) + x$ that go though $f$
+  and the unit circle. Such an intersection does not exist for all
+  points. If that is the case $f$ will be mapped to $(1, 0), (0, 1),
+  (-1, 0), (0, -1)$ if it is in the top, right, bottom, or left side
+  of the plane respectively.
+  \begin{figure}[!ht]
+  \centering \includegraphics[scale = 0.2]{drawing_task_4.png}
+  \label{fig:task_4}
+\end{figure}
+
+\item As the function $\alpha(f)$ is continuous so will also the
+  intersection point and thus the best approximation by this
+  mechanism. Further points not having such and intersection will all
+  get the same best approximation as their neighbors, thus satisfying
+  continuity. Last but not least on the border between the two methods
+  of
+\end{enumerate}
 \end{solution}
 
  	
