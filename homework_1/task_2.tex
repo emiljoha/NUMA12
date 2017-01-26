@@ -1,9 +1,20 @@
 \begin{problem}
-Show that the usual norm on $\mathcal{C}[a,b]$, $\lVert\cdot\rVert_{\infty}$ is not strictly convex. As a counter example use $f(x) = x$ and $g(x) = x^2$ in $\mathcal{C}[0,1]$.
+Show that the usual norm on $\mathcal{C}[a,b]$, $\lVert \cdot \rVert_{\infty}$ is not strictly convex. As a counter example use $f(x) = x$ and $g(x) = x^2$ in $\mathcal{C}[0,1]$.
 \end{problem}
 
 \begin{solution}
-
+By definition, a norm is strictly convex if the unit ball is strictly convex, that is:
+\begin{equation*}
+\lVert \lambda f + (1-\lambda)g \rVert_{\infty} < 1
+\end{equation*}
+We have that $\lVert f \rVert_{\infty} = \lVert g \rVert_{\infty} = 1$. By the triangle inequality and the property that $\lVert \lambda x \rVert_{\infty} = \lambda \lVert x \rVert_{\infty}$ we have that:
+\begin{equation*}
+\lVert \lambda f + (1-\lambda)g \rVert_{\infty} \leq \lambda + (1-\lambda) = 1.
+\end{equation*}
+Now we wish to show that we actually can obtain equality. By choosing $\lambda = \frac{1}{2}$ we get:
+\begin{equation*}
+\lVert \frac{1}{2} x + \frac{1}{2} x^2 \rVert_{\infty} = \frac{1}{2} \lVert x+x^2 \rVert_{\infty} = 1.
+\end{equation*}
 \end{solution}
 
 %%% Local Variables:
