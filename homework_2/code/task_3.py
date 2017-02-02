@@ -11,7 +11,7 @@ def lagrange(i, points, X):
   for j in range(len(X)):
     for k in range(len(points)):
       if k != i:
-        help *= float(X[j] - points[k]) / float(points[i] - points[k])
+        help *= (X[j] - points[k]) / (points[i] - points[k])
     res.append(help)
     help = 1
   return res
@@ -23,8 +23,7 @@ if __name__ == "__main__":
     n = 4
     for k in range(n):
       points.append(np.cos((2*(k+1) - 1)/float(2*n) * np.pi))
-    
-                      
+              
     for i in range(len(points)):
       L = lagrange(i, points, X)
       plt.plot(X, L)
