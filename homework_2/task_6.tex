@@ -1,6 +1,6 @@
 \begin{problem}
 Show that the Chebyshev polynomials are mutually orthogonal relative to the
-weight $w(x) = (1 − x 2 )^{−1/2}$ on $[−1, 1]$, that is
+weight $w(x) = (1-x^2)^{-��1/2}$ on $[-1, 1]$, that is
 \begin{equation*}
   \int_{-1}^1 \frac{T_n(x) T_m(x)}{\sqrt{ 1- x^2}} dx = 0
 \end{equation*}
@@ -9,7 +9,16 @@ weight $w(x) = (1 − x 2 )^{−1/2}$ on $[−1, 1]$, that is
 %--------------------------------------------------------------------%
 
 \begin{solution}  
-
+Let us use the change of variables $x = \cos(\theta)$ and the definition of the Chebyshev polynomials
+\begin{equation}
+\int_{-1}^1 \frac{T_n(x) T_m(x)}{\sqrt{ 1- x^2}} dx = \int_{\pi+2k\pi}^{2k\pi} \cos(n\theta)\cos(m\theta)\frac{1}{\sqrt{1-\cos^2(\theta)}}(-\sin(\theta))d\theta
+\label{eq1}
+\end{equation}
+Now let us use the properties that $\cos^2(\theta)+\sin^2(\theta) = 1$ and $\cos(u)\cos(v) = \frac{1}{2}(\cos(u-v)+\cos(u+v))$ and continue from \ref{eq1}.
+\begin{equation*}
+-\frac{1}{2} \int_{\pi+2k\pi}^{2k\pi} (\cos((n-m)\theta) + \cos((n+m)\theta)) d\theta = -\frac{1}{2} \left [ \frac{1}{n-m} \sin ((n-m)\theta) + \frac{1}{n+m} \sin((n+m)\theta) \right ]_{\pi + 2k\pi}^{2k\pi}
+\end{equation*}
+Which is zero for al $k = 0,1,2,\ldots$
 \end{solution}
 
 %%% Local Variables:
