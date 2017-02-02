@@ -6,8 +6,35 @@ same number of Chebyshev points.
 
 %--------------------------------------------------------------------%
 
-\begin{solution}  
+\begin{solution}
+\begin{tabular}{ l | c | r }
+number of points & Equal & Chebychef \\ \hline
+3 & 1.2499997495 & 1.66666666667 \\
+5 & 2.20782401056 & 1.988854382 \\
+7 & 4.54933607577 & 2.20221455521 \\
+9 & 10.9451269881 & 2.36185678777 \\
+11 & 29.897758816 & 2.48943037688 \\
+12 & 51.2142153912 & 2.54476611865 \\
+13 & 89.3241847196 & 2.59567818079 \\
+15 & 283.176227752 & 2.68671488157 \\
+17 & 934.248871729 & 2.76635333589 \\
+19 & 3170.42387769 & 2.83713169974 \\
+21 & 10978.7950447 & 2.90082490445 \\
+\end{tabular}
 
+Although these values are very reasonable we have reason to trust
+their accuracy. When testing the script for the Chebyshev points tabulated in
+table 4.5 in the course-book there is a clear deviation. Our values are larger. This is
+due to the $\sum_{i=0}^n \|l_i(x)\|$ function having its maxima at the
+end points. Inside the interval there were local maxima that where
+quite close but just under the tabulated value. This is suggesting
+that the Chebyshev points are miss-placed as the errors are not
+ ``evened out``. The points are calculated according to equation
+(4.27) in the course book and have been compared with the other
+calculations to be very precise. 
+\begin{equation*}
+  x_i = cos\left(\frac{[2(n - 1) +1]\pi}{2(n + 1)}\right)
+\end{equation*}
 \end{solution}
 
 %%% Local Variables:
