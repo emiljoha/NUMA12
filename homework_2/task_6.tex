@@ -9,7 +9,7 @@ weight $w(x) = (1-x^2)^{-ˆ’1/2}$ on $[-1, 1]$, that is
 %--------------------------------------------------------------------%
 
 \begin{solution}  
-Let us use the change of variables $x = \cos(\theta)$ and the definition of the Chebyshev polynomials
+Assume that $n \neq m$. Let us use the change of variables $x = \cos(\theta)$ and the definition of the Chebyshev polynomials
 \begin{equation}
 \int_{-1}^1 \frac{T_n(x) T_m(x)}{\sqrt{ 1- x^2}} dx = \int_{\pi+2k\pi}^{2k\pi} \cos(n\theta)\cos(m\theta)\frac{1}{\sqrt{1-\cos^2(\theta)}}(-\sin(\theta))d\theta
 \label{eq1}
@@ -18,7 +18,16 @@ Now let us use the properties that $\cos^2(\theta)+\sin^2(\theta) = 1$ and $\cos
 \begin{equation*}
 \frac{1}{2} \int_{2k\pi}^{\pi+2k\pi} (\cos((n-m)\theta) + \cos((n+m)\theta)) d\theta = \frac{1}{2} \left [ \frac{1}{n-m} \sin ((n-m)\theta) + \frac{1}{n+m} \sin((n+m)\theta) \right ]_{2k\pi}^{\pi + 2k\pi}
 \end{equation*}
-Which is zero for al $k = 0,1,2,\ldots$
+Which is zero for all $k = 0,1,2,\ldots$
+
+Actually, if $n=m\neq 0$ we have:
+\begin{equation*}
+\int_{2k\pi}^{\pi+2k\pi} cos^2(\theta) d\theta = \pi/2
+\end{equation*}
+and if $n=m=0$:
+\begin{equation*}
+\int_{2k\pi}^{\pi+2k\pi} 1 d\theta = \pi.
+\end{equation*}
 \end{solution}
 
 %%% Local Variables:
