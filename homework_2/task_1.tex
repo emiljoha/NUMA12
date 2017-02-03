@@ -1,15 +1,35 @@
 \begin{problem}
-Let $−1 ≤ x_0 < x_1 < x_2 ≤ 1$ and $X$ denote the Lagrange
+Let $-1 \leq x_0 < x_1 < x_2 \leq 1$ and $X$ denote the Lagrange
 interpolator at these points. Show that the minimum value of
-$\|X\|_\infty$ is $\frac{5}{4}$ and is attained when $−x_0 = x_2 ≥ 2
-\sqrt{\frac{2}{3}}$ and $x_1 = 0$. Show that if $x_0 , x_1 , x_2$ are
-the zeros of $T_3$, then $\|X\|_\infty = \frac{5}{3}$.
+$\lVert X \rVert_\infty$ is 5/4 and is attained when $-x_0 = x_2 \geq 2
+\sqrt{2}/3$ and $x_1 = 0$. Show that if $x_0 , x_1 , x_2$ are
+the zeros of $T_3$, then $\lVert X \rVert_\infty = 5/3$.
 \end{problem}
 
 %--------------------------------------------------------------------%
 
 \begin{solution}  
+As we have 3 interpolation points, we know that our polynomial is of degree at most 2. The Lebesgue constant of the interpolation operator can be written as:
+\begin{equation}
+\lVert X \rVert_{\infty} = \max_{x\in [-1,1]} \sum_{i=0}^2 \lvert l_i(x) \rvert
+\label{e1}
+\end{equation}
+Where $l_i$ are the Lagrange basis polynomials. blah blah blah some proof blah blah
 
+If, as stated, we take the points $x_0 = -1, x_1 = 0, x_2 = 1$ and expand the LHS of equation \ref{e1} we obtain:
+\begin{equation}
+\max_{x \in [0,1]} \left \{ \left | \frac{x(x-1)}{2} \right | + \left | -x^2+1 \right | + \left | \frac{x(x+1)}{2} \right | \right \}
+\label{e2}
+\end{equation}
+We can split the inside of equation \ref{e2} as:
+\[ \begin{cases} 
+      -x^2-x+1  &-1< x< 0 \\
+      -x^2+x+1  &0< x<1 
+   \end{cases}
+\]
+Taking the derivative and making it equal to zero yields $x = \pm 1/2$. We also consider the problematic points $x = \pm 1$ and $x = 0$. By substituting these values at our function we get that the maximum is attained at $x=\pm 1/2$ with the value 5/4, therefore the lower bound for the operator is attained.
+
+Finally we have that $T_3 = 4x^3-3x$, the roots of $T_3$ are $x=0, x=\pm \sqrt{3}/2$. By a similar proceeding as above, we conclude that blah blah blah
 \end{solution}
 
 %%% Local Variables:
