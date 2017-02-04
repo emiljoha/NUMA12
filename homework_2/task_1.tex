@@ -18,7 +18,7 @@ Where $l_i$ are the Lagrange basis polynomials. blah blah blah some proof blah b
 
 If, as stated, we take the points $x_0 = -1, x_1 = 0, x_2 = 1$ and expand the LHS of equation \ref{e1} we obtain:
 \begin{equation}
-\max_{x \in [0,1]} \left \{ \left | \frac{x(x-1)}{2} \right | + \left | -x^2+1 \right | + \left | \frac{x(x+1)}{2} \right | \right \}
+\max_{x \in [-1,1]} \left \{ \left | \frac{x(x-1)}{2} \right | + \left | -x^2+1 \right | + \left | \frac{x(x+1)}{2} \right | \right \}
 \label{e2}
 \end{equation}
 We can split the inside of equation \ref{e2} as:
@@ -29,7 +29,20 @@ We can split the inside of equation \ref{e2} as:
 \]
 Taking the derivative and making it equal to zero yields $x = \pm 1/2$. We also consider the problematic points $x = \pm 1$ and $x = 0$. By substituting these values at our function we get that the maximum is attained at $x=\pm 1/2$ with the value 5/4, therefore the lower bound for the operator is attained.
 
-Finally we have that $T_3 = 4x^3-3x$, the roots of $T_3$ are $x=0, x=\pm \sqrt{3}/2$. By a similar proceeding as above, we conclude that blah blah blah
+Finally we have that $T_3 = 4x^3-3x$, the roots of $T_3$ are $x=0, x=\pm \sqrt{3}/2$. By choosing $x_0 = -\frac{\sqrt{3}}{2}, x_1 = 0, x_2 = \frac{\sqrt{3}}{2}$ and expanding the LHS of eqaution \ref{e1} we obtain:
+\begin{equation}
+\max_{x \in [-1,1]} \left \{ \left | \frac{2x^2-\sqrt{3}x}{3} \right | + \left | \frac{-4x^2+3}{3} \right | + \left | \frac{2x^2+\sqrt{3}x}{3} \right | \right \}
+\label{e3}
+\end{equation}
+We can split the inside of equation \ref{e3} as:
+\[ \begin{cases} 
+      \frac{8x^2-3}{3}  &-1< x< -\frac{\sqrt{3}}{2} \\
+      \frac{-4x^2-2\sqrt{3}x+3}{3}  &-\frac{\sqrt{3}}{2}< x< 0 \\
+      \frac{-4x^2+2\sqrt{3}x+3}{3} & 0 < x < \frac{\sqrt{3}}{2} \\
+      \frac{8x^2-3}{3} & \frac{\sqrt{3}}{2}<x<1 
+   \end{cases}
+\]
+Taking the derivative and making it equal to zero yields $x = \pm \sqrt{3}/4, x = 0$. We also consider the problematic points $x = \pm 1$ and $x = \pm \sqrt{3}/2$. By substituting these values at our function we get that the maximum is attained at $x=\pm 1$ with the value 5/3.
 \end{solution}
 
 %%% Local Variables:
