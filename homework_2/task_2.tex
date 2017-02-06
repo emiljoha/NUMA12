@@ -1,44 +1,44 @@
 \begin{problem}
-Calculate the Lebesgue constants for the Lagrange interpolation
-operator with $3, 5, 7, \dots , 21$ equally spaced points, and with the
-same number of Chebyshev points.
+  Calculate the Lebesgue constants for the Lagrange interpolation
+  operator with $3, 5, 7, \dots , 21$ equally spaced points, and with the
+  same number of Chebyshev points.
 \end{problem}
 
-%--------------------------------------------------------------------%
+% --------------------------------------------------------------------%
 
 \begin{solution}
- \begin{table}
-  \begin{center}
-   \begin{tabular}{ l | c | r }
-     number of points & Equal & Chebyshev \\ \hline
-     3 & 1.24 & 1.667 \\
-     5 & 2.21 & 1.989 \\
-     7 & 4.55 & 2.202 \\
-     9 & 10.95 & 2.362 \\
-     11 & 29.90 & 2.489 \\
-     12 & 51.21 & 2.545 \\
-     13 & 89.32 & 2.596 \\
-     15 & 283.2 & 2.687 \\
-     17 & 934.25 & 2.766 \\
-     19 & 3170 & 2.837 \\
-     21 & 10980 & 2.901 \\
-   \end{tabular}
- \end{center}
-\end{table}
+  \begin{table}[!ht]
+    \begin{center}
+      \begin{tabular}{ l  c  r }
+        number of points & Equal & Chebyshev \\ \hline
+        3 & 1.24 & 1.667 \\
+        5 & 2.21 & 1.989 \\
+        7 & 4.55 & 2.202 \\
+        9 & 10.95 & 2.362 \\
+        11 & 29.90 & 2.489 \\
+        12 & 51.21 & 2.545 \\
+        13 & 89.32 & 2.596 \\
+        15 & 283.2 & 2.687 \\
+        17 & 934.25 & 2.766 \\
+        19 & 3170 & 2.837 \\
+        21 & 10980 & 2.901 \\
+      \end{tabular}
+    \end{center}
+  \end{table}
 
-Although these values are very reasonable we have reason to trust
-their accuracy. When testing the script for the Chebyshev points tabulated in
-table 4.5 in the course-book there is a clear deviation. Our values are larger. This is
-due to the $\sum_{i=0}^n \|l_i(x)\|$ function having its maxima at the
-end points. Inside the interval there were local maxima that where
-quite close but just under the tabulated value. This is suggesting
-that the Chebyshev points are miss-placed as the errors are not
- ``evened out``. The points are calculated according to equation
-(4.27) in the course book and have been compared with the other
-calculations to be very precise. 
-\begin{equation*}
-  x_i = cos\left(\frac{[2(n - 1) +1]\pi}{2(n + 1)}\right)
-\end{equation*}
+  Although these values are very reasonable we have reason to trust
+  their accuracy. When testing the script for the Chebyshev points tabulated in
+  table 4.5 in the course-book there is a clear deviation. Our values are larger. This is
+  due to the $\sum_{i=0}^n \|l_i(x)\|$ function having its maxima at the
+  end points. Inside the interval there were local maxima that where
+  quite close but just under the tabulated value. This is suggesting
+  that the Chebyshev points are miss-placed as the errors are not
+  ``evened out``. The points are calculated according to equation
+  (4.27) in the course book and have been compared with the other
+  calculations to be very precise. 
+  \begin{equation*}
+    x_i = \cos\left(\frac{[2(n - 1) +1]\pi}{2(n + 1)}\right)
+  \end{equation*}
 \end{solution}
 
 %%% Local Variables:

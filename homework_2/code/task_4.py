@@ -28,34 +28,37 @@ if __name__ == "__main__":
     #     subplt = subplt + 1
     # plt.savefig("task_4_cheby.png")
 
-    # plt.figure(2)
-    # subplt = 221
+    plt.figure(2)
+    subplt = 221
+    legend = []
+    abs_max = []
+    Xp = np.linspace(0.8, 1, 100, endpoint=False)
+    n = 2
+    for x in Xp:
+        points = [-x, 0, x]
+        abs_L = abs_lagrange_operator(points, X)
+        abs_max.append(max(abs_L))
+        #pos_num = get_position(max(abs_L), abs_L)
+        print(str(x) + " : " + str(max(abs_L)))
+        #plt.subplot(subplt)
+        #
+        #legend.append(str(x))
+        #subplt = subplt + 1
+    plt.plot(X, abs_max)
+    # plt.legend(legend)
+    plt.savefig("task_1.png")
+
+    # plt.figure(3)
+    # subplt = 311
     # legend = []
-    # n = 3
-    # for x in [0.85, 0.9, 0.95, 1]:
-    #     points = [-x, 0, x]
+    # for x in [0.4, 0.5, 0.6]:
+    #     points = [-1, -x, x, 1]
     #     abs_L = abs_lagrange_operator(points, X)
     #     pos_num = get_position(max(abs_L), abs_L)
-    #     print(str(x) + " : " + str(X[pos_num]) + " : " + str(max(abs_L)))
     #     #plt.subplot(subplt)
     #     plt.plot(X, abs_L)
     #     legend.append(str(x))
     #     subplt = subplt + 1
 
     # plt.legend(legend)
-    # plt.savefig("task_4_edge.png")
-
-    plt.figure(3)
-    subplt = 311
-    legend = []
-    for x in [0.4, 0.5, 0.6]:
-        points = [-1, -x, x, 1]
-        abs_L = abs_lagrange_operator(points, X)
-        pos_num = get_position(max(abs_L), abs_L)
-        #plt.subplot(subplt)
-        plt.plot(X, abs_L)
-        legend.append(str(x))
-        subplt = subplt + 1
-
-    plt.legend(legend)
-    plt.savefig("task_4_n3.png")
+    # plt.savefig("task_4_n3.png")
