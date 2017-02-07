@@ -34,7 +34,15 @@ If we have perturbations in the initial data we would like to know how much our 
 \begin{equation*}
 p(6) = -10(f(0)\pm \epsilon) + 36 (f(1) \pm \epsilon) - 45 (f(2) \pm \epsilon) + 20 (f(3) \pm \epsilon)
 \end{equation*}
-In the worst case scenario we would have $\epsilon(10+36+45+20)$, that is, we won't get a worse result than $p(6) + 111\epsilon$. Another approach would be to take the error as $\epsilon \sqrt{10^2+36^2+45^2+20^2}$ in any case, we see that if we get a perturbation that is too large (e.g. $\epsilon = 0.01$ could give an error of up to 1.11 units) we will get a very bad result.
+In the worst case scenario we would have $\epsilon(10+36+45+20)$, that
+is, we won't get a worse result than $p(6) + 111\epsilon$. Another
+approach would be to take the error as
+$\epsilon \sqrt{10^2+36^2+45^2+20^2}$ in any case, we see that if we
+get a perturbation that is too large. For example $\epsilon = 0.01$ could
+give an error of up to 1.11 units. From this we conclude that the
+inherent uncertainty of computation $10^{-16}$ poses no problem but
+as the increase in the error is almost two orders of magnitude it can
+cause problems if not addressed.  
 \end{solution}
 
 %%% Local Variables:
