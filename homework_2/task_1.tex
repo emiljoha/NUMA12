@@ -1,48 +1,116 @@
 \begin{problem}
-Let $-1 \leq x_0 < x_1 < x_2 \leq 1$ and $X$ denote the Lagrange
-interpolator at these points. Show that the minimum value of
-$\lVert X \rVert_\infty$ is 5/4 and is attained when $-x_0 = x_2 \geq 2
-\sqrt{2}/3$ and $x_1 = 0$. Show that if $x_0 , x_1 , x_2$ are
-the zeros of $T_3$, then $\lVert X \rVert_\infty = 5/3$.
+  Let $-1 \leq x_0 < x_1 < x_2 \leq 1$ and $X$ denote the Lagrange
+  interpolator at these points. Show that the minimum value of
+  $\lVert X \rVert_\infty$ is 5/4 and is attained when $-x_0 = x_2 \geq 2
+  \sqrt{2}/3$ and $x_1 = 0$. Show that if $x_0 , x_1 , x_2$ are
+  the zeros of $T_3$, then $\lVert X \rVert_\infty = 5/3$.
 \end{problem}
 
-%--------------------------------------------------------------------%
+% --------------------------------------------------------------------%
 
 \begin{solution}  
-As we have 3 interpolation points, we know that our polynomial is of degree at most 2. The Lebesgue constant of the interpolation operator can be written as:
-\begin{equation}
-\lVert X \rVert_{\infty} = \max_{x\in [-1,1]} \sum_{i=0}^2 \lvert l_i(x) \rvert
-\label{defX}
-\end{equation}
-Where $l_i$ are the Lagrange basis polynomials. blah blah blah some proof blah blah
+  As we have 3 interpolation points, we know that our polynomial is of
+  degree at most 2. The Lebesgue constant of the interpolation
+  operator can be written as:
+  \begin{equation}
+    \lVert X \rVert_{\infty} = \max_{x\in [-1,1]} \sum_{i=0}^2 \lvert l_i(x) \rvert
+    \label{defX}
+  \end{equation}
+  Where $l_i$ are the Lagrange basis polynomials. The task of
+  minimizing the max norm of a quantity is the task of balancing
+  local maxima so that they are equal. By numerically studying the
+  local maxima´s of equation~\ref{defX} we see that the as the distance between two
+  points increase, so does the value of the local maxima in
+  between. From this realization we see that $x_1= 0$ and
+  $-x_0=x_2$ as this is the only setup that preserves the symmetry of
+  equation~\ref{defX}. Any other choice would result in one side
+  having a higher maxima that the other.
 
-If, as stated, we take the points $x_0 = -1, x_1 = 0, x_2 = 1$ and expand the LHS of equation \ref{defX} we obtain:
-\begin{equation}
-\max_{x \in [-1,1]} \left \{ \left | \frac{x(x-1)}{2} \right | + \left | -x^2+1 \right | + \left | \frac{x(x+1)}{2} \right | \right \}
-\label{eq1t1}
-\end{equation}
-We can split the inside of equation \ref{eq1t1} as:
-\[ \begin{cases} 
+  Now there is only one degree of freedom left. From
+  figure~\ref{fig:4edge} in task 4 we see that there is one more
+  possible maxima that we have not yet considered. The end
+  points. Figure~\ref{fig:4edge} suggests that the end points decrease
+  as the end points go further out and become smaller than the
+  internal maxima´s around 0.95. A more careful numerical calculation
+  gives the results in table~\ref{tab:1}. In table~\ref{tab:1} we see
+  something quite spectacular. Between $0.941$ and $0.943$ the maximum
+  stop changing and remain stable to an error of $10^{-6}$ for points
+  closer to the edges. This value for when the maxima become stable
+  perfectly corresponds to $2\frac{\sqrt{2}}{3}$.
+
+  \begin{table}[!ht]
+    \caption{Table of global maxima of $\sum_{k=0}^n|l_k(x)|$ with
+      three points. $\{-x, 0, x\}$ for $x \in [0.92, 0.96]$ with
+      steps length $0.002$}
+    \label{tab:1}
+    \begin{center}
+      \begin{tabular}{ l  c  r }
+        $x$ & Maxima \\ \hline
+        0.923232323232 & 1.34643211124 \\
+        0.925252525253 & 1.33619686886 \\
+        0.927272727273 & 1.3260284506 \\
+        0.929292929293 & 1.31592627599 \\
+        0.931313131313 & 1.30588977089 \\
+        0.933333333333 & 1.29591836735 \\
+        0.935353535354 & 1.28601150353 \\
+        0.937373737374 & 1.27616862366 \\
+        0.939393939394 & 1.26638917794 \\
+        0.941414141414 & 1.25667262245 \\
+        0.943434343434 & 1.24999993218 \\
+        0.945454545455 & 1.24999937708 \\
+        0.947474747475 & 1.24999992242 \\
+        0.949494949495 & 1.24999941213 \\
+        0.951515151515 & 1.2499999121 \\
+        0.953535353535 & 1.24999944589 \\
+        0.955555555556 & 1.24999990124 \\
+        0.957575757576 & 1.24999947837 \\
+        0.959595959596 & 1.24999988984 \\
+        0.961616161616 & 1.24999950961 \\
+        0.963636363636 & 1.24999987792 \\
+        0.965656565657 & 1.24999953963 \\
+      \end{tabular}
+    \end{center}
+  \end{table}
+
+  If, as stated, we take the points $x_0 = -1, x_1 = 0, x_2 = 1$ and
+  expand the LHS of equation \ref{defX} we obtain:
+  \begin{equation}
+    \max_{x \in [-1,1]} \left \{ \left | \frac{x(x-1)}{2} \right | + \left | -x^2+1 \right | + \left | \frac{x(x+1)}{2} \right | \right \}
+    \label{eq1t1}
+  \end{equation}
+  We can split the inside of equation \ref{eq1t1} as:
+  \[ \begin{cases} 
       -x^2-x+1  &-1< x< 0 \\
       -x^2+x+1  &0< x<1 
-   \end{cases}
-\]
-Taking the derivative and making it equal to zero yields $x = \pm 1/2$. We also consider the problematic points $x = \pm 1$ and $x = 0$. By substituting these values at our function we get that the maximum is attained at $x=\pm 1/2$ with the value 5/4, therefore the lower bound for the operator is attained.
+    \end{cases}
+  \]
+  Taking the derivative and making it equal to zero yields
+  $x = \pm 1/2$. We also consider the problematic points $x = \pm 1$
+  and $x = 0$. By substituting these values at our function we get
+  that the maximum is attained at $x=\pm 1/2$ with the value 5/4,
+  therefore the lower bound for the operator is attained.
 
-Finally we have that $T_3 = 4x^3-3x$, the roots of $T_3$ are $x=0, x=\pm \sqrt{3}/2$. By choosing $x_0 = -\frac{\sqrt{3}}{2}, x_1 = 0, x_2 = \frac{\sqrt{3}}{2}$ and expanding the LHS of eqaution \ref{defX} we obtain:
-\begin{equation}
-\max_{x \in [-1,1]} \left \{ \left | \frac{2x^2-\sqrt{3}x}{3} \right | + \left | \frac{-4x^2+3}{3} \right | + \left | \frac{2x^2+\sqrt{3}x}{3} \right | \right \}
-\label{eq2t1}
-\end{equation}
-We can split the inside of equation \ref{eq2t1} as:
-\[ \begin{cases} 
+  Finally we have that $T_3 = 4x^3-3x$, the roots of $T_3$ are
+  $x=0, x=\pm \sqrt{3}/2$. By choosing
+  $x_0 = -\frac{\sqrt{3}}{2}, x_1 = 0, x_2 = \frac{\sqrt{3}}{2}$ and
+  expanding the LHS of eqaution \ref{defX} we obtain:
+  \begin{equation}
+    \max_{x \in [-1,1]} \left \{ \left | \frac{2x^2-\sqrt{3}x}{3} \right | + \left | \frac{-4x^2+3}{3} \right | + \left | \frac{2x^2+\sqrt{3}x}{3} \right | \right \}
+    \label{eq2t1}
+  \end{equation}
+  We can split the inside of equation \ref{eq2t1} as:
+  \[ \begin{cases} 
       \frac{8x^2-3}{3}  &-1< x< -\frac{\sqrt{3}}{2} \\
       \frac{-4x^2-2\sqrt{3}x+3}{3}  &-\frac{\sqrt{3}}{2}< x< 0 \\
       \frac{-4x^2+2\sqrt{3}x+3}{3} & 0 < x < \frac{\sqrt{3}}{2} \\
       \frac{8x^2-3}{3} & \frac{\sqrt{3}}{2}<x<1 
-   \end{cases}
-\]
-Taking the derivative and making it equal to zero yields $x = \pm \sqrt{3}/4, x = 0$. We also consider the problematic points $x = \pm 1$ and $x = \pm \sqrt{3}/2$. By substituting these values at our function we get that the maximum is attained at $x=\pm 1$ with the value 5/3.
+    \end{cases}
+  \]
+  Taking the derivative and making it equal to zero yields
+  $x = \pm \sqrt{3}/4, x = 0$. We also consider the problematic points
+  $x = \pm 1$ and $x = \pm \sqrt{3}/2$. By substituting these values
+  at our function we get that the maximum is attained at $x=\pm 1$
+  with the value 5/3.
 \end{solution}
 
 %%% Local Variables:

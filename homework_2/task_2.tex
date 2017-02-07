@@ -26,19 +26,20 @@
     \end{center}
   \end{table}
 
-  Although these values are very reasonable we have reason to trust
-  their accuracy. When testing the script for the Chebyshev points tabulated in
-  table 4.5 in the course-book there is a clear deviation. Our values are larger. This is
-  due to the $\sum_{i=0}^n \|l_i(x)\|$ function having its maxima at the
-  end points. Inside the interval there were local maxima that where
-  quite close but just under the tabulated value. This is suggesting
-  that the Chebyshev points are miss-placed as the errors are not
-  ``evened out``. The points are calculated according to equation
-  (4.27) in the course book and have been compared with the other
-  calculations to be very precise. 
-  \begin{equation*}
+  When testing the script for the Chebyshev points tabulated in table
+  4.5 in the course-book there is a clear deviation. Our values are
+  larger. This is due to the $\sum_{i=0}^n \|l_i(x)\|$ function having
+  its maxima at the end points. Inside the interval there were local
+  maxima that where quite close but just under the tabulated
+  value. This is suggesting that the Chebyshev points are not
+  optimally placed as the errors are not ``evened out``. The points
+  are calculated according to equation~\ref{eq:cheby}, (4.27) in the
+  course book.
+  
+  \begin{equation}
+    \label{eq:cheby}
     x_i = \cos\left(\frac{[2(n - 1) +1]\pi}{2(n + 1)}\right)
-  \end{equation*}
+  \end{equation}
 \end{solution}
 
 %%% Local Variables:
