@@ -1,0 +1,18 @@
+\begin{problem}
+  We showed in class that $B_n 1 = 1, B_n x = x $ and $B_n x^2 = ((n -
+  1)x^2 - 1 ) /n$. Prove that the Bernstein approximation operator is
+  not a projection.
+\end{problem}
+
+\begin{solution}
+  $X: \mathcal{B} \rightarrow \mathcal{A}$ is a projection if and only
+  if $X(a) = a \forall a \in \mathcal{A}$.
+
+  It is evident that $B_n:C[0,1] \rightarrow \mathcal{P}_n$ for
+  $n \geq 2$ is not a projections as
+  $B_n x^2 \neq x^2 \in \mathcal{P}_n$ for $n \geq 2$. $B_0$ and $B_1$
+  is however a projection as $\{1\}, \{1, x\}$ form a base for
+  $\mathcal{P}_0$ and $\mathcal{P}_1$ respectively and they are
+  linear operators.
+\end{solution}
+
