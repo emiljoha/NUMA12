@@ -26,21 +26,21 @@
     %are very common for this type of document. You can google to learn more about what
     %they can do, and what options they give you. For example
 
-\Usepackage{Graphicx}
-%\Usepackage{Svg}
+\usepackage{graphicx}
+%\usepackage{svg}
 
-\Usepackage[Margin=1.5in]{Geometry}
-    %The Geometry Package Lets You Customize The Margins Of Your Document.
-    % And The 
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
   
-\Usepackage{Setspace}
-    %Package Gives Us The Ability To Set The Line spacing.
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
    
 
-\Newtheorem{theorem}{Theorem}
-\theoremstyle{Definition} 
-\newtheorem{Problem}[Theorem]{Task}
-%These Set Up Environments For Listing Things. The numbering is automatic.
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Task}
+%these set up environments for listing things. The numbering is automatic.
 
     
 \newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
@@ -75,3 +75,8 @@ Homework 2}
 \input{task_6.tex}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
