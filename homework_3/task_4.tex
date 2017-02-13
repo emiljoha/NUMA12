@@ -1,0 +1,27 @@
+\begin{problem}
+Let $mathcal{A}$ be the space of polynomials of max degree $n-1$, which are built as a linear combination of monomials with odd exponents (like those in the Taylor expansion of $\sin$). Is this a Haar space?
+\end{problem}
+
+\begin{solution}
+We have polynomials of the form:
+\begin{equation*}
+a_1x^1+a_3x^3+a_5x^5+\ldots+a_{n-1}x^{n-1}
+\end{equation*}
+This is not a Haar space as we can construct polynomials that have more roots than the Haar space can handle. Consider n = 5, then we have a space of dimension $d=3$.
+\begin{equation*}
+a_1x^1+a_3x^3
+\end{equation*}
+By definition, all elements of a Haar space of dimension $n^*+1$ have at most $n^*$ roots. In our case, $n^*+1 = 3$ thus, all elements of the space have to have at most $n^*=2$ roots. However let us construct a polynomial with 3 roots. We want a polynomial of the form $(x-x_1)(x-x_2)(x-x_3)$. Expanding this expression we get:
+\begin{equation*}
+x^3-x^2(x_3+x_2+x_1)+x(x_2x_3+x_1x_3+x_1x_2)-x_1x_2x_3
+\end{equation*}
+As we want the $x^2$ and the independent term to be gone we get a system of equations:
+\begin{align*}
+x_3+x_2+x_1 &= 0 \\
+x_1x_2x_3 &= 0
+\end{align*}
+Let $x_3 = 0$, then we get $x_1 = -x_2$, for example let $x_1 = 1$ then we have:
+\begin{equation*}
+p(x) = x(x-1)(x+1) = x^3-x
+\end{equation*}
+\end{solution}
