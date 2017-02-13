@@ -1,0 +1,53 @@
+\begin{problem}
+  Show that every $p in \mathcal{P}_n$ has a unique representation as
+  $p = a_0 T_o + a_1 T_1 + \cdots + a_n T_n$. Find this representation
+  in the case $p(x) = x^2$.
+\end{problem}
+
+\begin{solution}
+  \begin{equation}
+    \label{eq:cheby} T_n(\cos{\theta}) = \cos{n\theta}
+  \end{equation} The Chebyshev polynomials as defined in
+  equation~\ref{eq:cheby} are quite evidently linearly independent and
+  elements in $\mathcal{P}_n$. The set $\{ T_0, \dots , T_n\}$ is
+  therefor a set of $n+1$ linearly independent elements in a $n+1$
+  dimensional vector space. Thus the Chebyshev polynomials form a basis
+  of $\mathcal{P}_n$. Therefore the existence and uniqueness of the
+  coefficient $a_0 \dots a_n$ follow from linear algebra of vector
+  spaces.
+
+  To actually find the coefficients is harder, as it often is in
+  mathematics. We can however get an expression for the coefficients in
+  quite a nice form by consider the scalar product defined in exercise 6
+  in homework 2. In that exercise we also showed orthogonality. Both
+  results are shown in equation~\ref{eq:homework2}.
+
+  \begin{align}
+    \label{eq:homework2}
+    & \begin{cases}
+      <f, g> = & \int_{-1}^{1} \frac{f(x) g(x)}{sqrt{1 - x^2}} dx \\
+      <T_i, T_j> = & \delta_{i,j} ( \pi - \frac{\pi}{2}\delta_{i,o} )
+    \end{cases} \\
+    \nonumber
+    \Rightarrow <p, T_i> =  & a_i ( \pi - \frac{\pi}{2}\delta_{i,o} ) 
+                              \Leftrightarrow a_i =
+                              \frac{<p,T_i>}{\frac{\pi}{2}\delta_{i,o}} \\
+    \nonumber 
+    <x^n, T_i>  = & \int_{-1}^{1} \frac{x^n T_i(x)}{sqrt{1 - x^2}} dx
+    \\
+    \label{eq:intexp} 
+    a_i = & \frac{\int_0^\pi \cos^{n}\theta \sin{i\theta} d\theta}{\pi
+            - \frac{\pi}{2}\delta_{i,o}} \\
+  \end{align}
+
+  Equation~\ref{eq:intexp} gives an expression for the coefficients.  
+  
+\end{solution}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "report"
+%%% End:
