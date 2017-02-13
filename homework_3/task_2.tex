@@ -7,6 +7,17 @@ As we know, the convergence of the Bernstein polynomial approximation is very sl
 \begin{equation*}
 \frac{n!}{k!(n-k)!}
 \end{equation*}
-However with this approach we only reached an accuracy of 0.0258 as we can not compute directly factorials of large numbers (crashed at $n = 172$). Then we turned to compute the binomial coefficients with MATLAB's built in \texttt{nchoosek} function, this did a better job, lowering the error to 0.008, but this is still not enough. Finally (need to do something).
-
+However with this approach we only reached an accuracy of 0.0258 as we can not compute directly factorials of large numbers (crashed at $n = 172$). Then we turned to compute the binomial coefficients with MATLAB's built in \texttt{nchoosek} function, this did a better job, lowering the error to 0.008, but this is still not enough. We also tried to use some properties of the binomial coefficient, namely:
+\begin{align*}
+\binom{n}{k} &= \frac{n}{k}\binom{n-1}{k-1} \\
+\binom{n}{k} &= \binom{n}{n-k} \\
+\binom{n}{0} & = 1
+\end{align*}
+but we did not get a significant improvement over MATLAB's implementation.
+\begin{figure}[h]
+\centering 
+\includegraphics[scale = 0.25]{task2hw3.png}
+\caption{Bernstein approximation to $f(x) = \lvert x-1/2 \rvert$ with an accuracy of $10^{-2}$}
+\label{task2hw3fig}
+\end{figure}
 \end{solution}
