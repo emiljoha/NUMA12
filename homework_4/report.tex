@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{homework}
+\usepackage{dsfont}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+
+\usepackage{graphicx}
+%\usepackage{svg}
+\usepackage{mathtools}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+   
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Task}
+%these set up environments for listing things. The numbering is automatic.
+
+    
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Numerical Approximation\\
+NUMA12, Spring, 2017\\
+Homework 3}
+\author{Anton Makarov and Emil Johansson \\
+        Lund University}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+\maketitle %make the title according to the styles outlined in homework.sty
+\vskip .25in %skip a bit before we start the regular text.
+\thispagestyle{empty} %no need to number first page.
+
+\input{task_1.tex}
+
+\input{task_2.tex}
+
+\input{task_3.tex}
+
+\input{task_4.tex}
+
+\input{task_5.tex}
+
+\input{task_6.tex}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
