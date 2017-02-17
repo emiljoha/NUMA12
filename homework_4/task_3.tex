@@ -6,6 +6,55 @@
 \end{problem}
 
 
-\begin{solution}
+ \begin{solution}
+   \begin{enumerate}
+     \item[\bf Haar space?] Let $\mathcal{A} = span(\{1, x^2\})$. Then
+       $\dim(\mathcal{A}) = 2$. Also $ p(x) = 1 - x^2 \in \mathcal{A}$
+       but $p$ have two roots $x = \pm 1$. This violates the Haar
+      condition that any element with more than $\dim(\mathcal{A}) -
+      1$ zeros are identically zero.
+    \item[\bf Find a best approximation using theorem 7.4]
+      As $\mathcal{A}$ is not a Haar space theorem 7.4 does not
+      apply. But there is nothing stopping us from trying anyway. Lets
+      choose the function $f(x) = \sin x$ on the interval $[0, \pi]$
+      with the reference $\{0, \frac{\pi}{2}, 1 \}$. Solving the
+      equation system in equation~\ref{eq:3:system}
+       \begin{align}
+         \label{eq:3:system}
+         \lambda_0 + \lambda_1 \zeta_{i}^{2} + {(-1)}^{i}h = f(\zeta_i) 
+         \Leftrightarrow &
+        \begin{cases} 
+          \lambda_0 + \lambda_1 0^2 + h = \sin 0 \\
+          \lambda_0 + \lambda_1 {\frac{\pi^2}{4}} - h =
+          \sin \frac{\pi}{2} \\
+          \lambda_0 + \lambda_1 {\pi}^2 + h = \sin \pi
+        \end{cases} \\
+         \Leftrightarrow \nonumber
+        \begin{cases}
+          \lambda_0 = -h \\
+          \lambda_0 + \lambda_1 \frac{\pi^2}{4} - h = 1 \\
+          \lambda_0 + \lambda_1 {\pi}^2 + h = 0
+        \end{cases} 
+        \Leftrightarrow & 
+        \begin{cases}
+          \lambda_0 = -h \\
+          h = -\frac{1}{2} \\
+          \lambda_1  = 0
+        \end{cases} \\
+        \Rightarrow & \, 
+        p(x) = \frac{1}{2} \label{eq:3:BestApprox}
+       \end{align}
 
-\end{solution}
+       At first the result in equation~\ref{eq:3:BestApprox} seem
+       weird. But when considering that any quadratic behavior would
+       be centered around $x=0$ it is clear this actually is a best
+       approximation, despite that theorem 7.4 do not apply.
+      
+     \end{enumerate}
+    
+   \end{solution}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "report"
+%%% End:
