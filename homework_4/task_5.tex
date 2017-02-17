@@ -13,7 +13,31 @@
 
 
 \begin{solution}
+  There are two different approaches to finding this maxima. Firstly,
+  one can use one of all the fancy optimization methods in
+  existence. The other is two do a quick and dirty
+  solution. Sacrificing precision for speed and simplicity.
 
+  The most simple quick-and-dirty method is to calculate the error
+  function on a grid, Choosing $\eta$ as the point on the grid that
+  corresponds to the highest value of the points tested. The grid
+  spacing is be chosen to ``resolve'' the changes in the
+  function. What is important is to find a value close to the actual
+  maxima, not to accurately find it.
+
+  The more sophisticated approach is to use one of the many
+  optimization algorithms in existence. These methods have in common
+  that they are able to locate the maxima at a much higher
+  accuracy. However, they also often get stuck at a local maxima which
+  is of much larger concern than inaccuracy in position. However this
+  do not exclude the existence of less naive brute force methods.
+
+  The brute-force grid method sacrifice inaccuracy for simplicity and
+  avoidance of getting stuck in local maxima. The maxima is not a
+  significant result in itself but simply just a guess, not an answer,
+  to the choice of reference. As the choice is of the maxima as the
+  next point is an approximation, the precision of the actual maxima
+  becomes less important. 
 \end{solution}
 
 %%% Local Variables:
