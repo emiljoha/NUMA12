@@ -1,11 +1,15 @@
 \begin{problem}
-  Show that the best approximation from $\mathcal{P}_2$ to the
-  function $f(x) = 144/(3x + 5), \, x \in [−1, 1]$, is $p(x) = 27 −
-  24x + 18x^2$, and that the error is maximal at the points -1, -2/3,
-  1/3 and 1.
+Show that the best approximation from $\mathcal{P}_2$ to the function $f(x) = 144/(3x + 5), \, x \in [-1, 1]$, is $p(x) = 27 - 24x + 18x^2$, and that the error is maximal at the points -1, -2/3, 1/3 and 1.
 \end{problem}
 
-
 \begin{solution}
-
+We construct the error function as $f(x) - p(x)$ obtaining:
+\begin{equation*}
+e^*(x) = \frac{144}{3x+5} - 27 + 24x-18x^2
+\end{equation*}
+Then to find the critical points we take the derivative of $e^*(x)$ and make it equal to zero:
+\begin{equation*}
+-\frac{432}{(3x+5)^2} - 36x + 24 = 0
+\end{equation*}
+Obtaining the solutions $x = -2/3, x =  1/3$ and $x = -7/3$. We can discard the last solution as it is outside the given range. Finally we have to consider the end points $x = \pm 1$ which have the same functional value as the other solutions, therefore they are also extrema of the error function, that is, the absolute value of the error is maximal at these four points. Note that this also shows that $p(x)$ is the best approximation from $\mathcal{P}_2$ to $f(x)$ by the sign condition theorem. We have 4 points in $Z_M = \{-1,-2/3,1/3,1\}$, where $Z_M$ is the set where the error function attains its maximum. The error function has degree 3 and changes its sign three times, thus we can not find a polynomial in $\mathcal{P}_2$ with 3 sign changes since a polynomial of degree $n$ can only have $n$ sign changes. Therefore by the theorem, $p(x)$ is the best approximation.
 \end{solution}
