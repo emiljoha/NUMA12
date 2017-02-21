@@ -1,13 +1,40 @@
 \begin{problem}
+  Write a program for the exchange algorithm. The program should take
+  as input:
+  \begin{itemize}
+  \item a continuous function f which is to be approximated
+  \item the dimension n of the subspace A
+  \item the interval $[a, b]$ in which f should be considered
+  \item a reference (ordered set of $n + 1$ points in $[a, b]$)
+  \item optionally a basis $\Phi_i \, , i = 1, \dots , n$ of the Haar
+    space (i.e. a set of n functions).    
+    If this input is not given your program should assume A = P n−1 and use the
+    monomial basis instead.
+  \item a tolerance tol.
+  \item a number nsp of sample points (see below)
+  \end{itemize}
+  The program needs to evaluate the max-norm of the error. For this end, the error
+  function has to be sampled at nsp equidistant points.
+  The program should return
+  \begin{itemize}
+  \item the coefficients of the approximation to the best approximation
+  \item an estimate of the error (distance to the best approximation in the max-norm)
+  \item  the number of iterates
+  \item  a vector with the reference level values h for every iteration
+  \item  the actual reference
+  \end{itemize}
 
-\end{problem}
+  Test your program with the Runge function
+  $f = \frac{1}{1 + 25x^2 } \, , [a, b] = [−1, 1]$ and $A = P_{n−1}$
+    for various $v$.
+  \end{problem}
 
 
-\begin{solution}
+  \begin{solution}
 
-\end{solution}
+  \end{solution}
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "report"
-%%% End:
+  %%% Local Variables:
+  %%% mode: latex
+  %%% TeX-master: "report"
+  %%% End:
