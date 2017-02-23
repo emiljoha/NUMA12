@@ -57,7 +57,8 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
         matrix[n] = hcoeff(np.array(range(n+1)))
 
         #calculate coefficients and h
-        res =  np.linalg.inv(np.transpose(matrix)).dot(f(reference))
+        #res =  np.linalg.inv(np.transpose(matrix)).dot(f(reference))
+        res = np.linalg.solve(matrix, f(reference))
         h.append(res[n])
 
         # Symbolic represenation of approximation
@@ -76,7 +77,7 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
             if (np.abs(error_array[i]) == abs_max_error) :
                 index = i
                 break
-        maxpos = grid[i]
+        maxpos = grid[index]
         print(maxpos)
 
         #Exchange point in reference.
