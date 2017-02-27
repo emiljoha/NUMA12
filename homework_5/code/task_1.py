@@ -72,13 +72,7 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
 
         # Find the max 
         max_error = 0
-        for x in grid:
-            # print(error(x))
-            # print(max_error)
-            # print(np.abs(error(x)) > np.abs(max_error))
-            if (np.abs(error(x)) > np.abs(max_error)) :
-                maxpos = x
-                max_error = error(x)
+        maxpos = grid[np.argmax(error(grid))]                
         
         # Test if we are done. 
         for i in range(n):
@@ -117,6 +111,6 @@ if __name__ == "__main__":
     reference = np.array([0.1, 0.5, 1])
     f = x**2 #(1 + 25*x**2)**(-1)
     tolerance = 0.01
-    nsp = 10
+    nsp = 1000
     res, h, maxpos= exchange_algorithm(f, n, intervall, reference, tolerance, nsp)
-    print(res)
+    print(h)
