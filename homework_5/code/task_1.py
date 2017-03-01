@@ -101,7 +101,7 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
                 reference = np.delete(reference, 0) #delete first element.
                 reference = np.append(reference, maxpos) # append with new last element.
         
-    return res, h, maxpos
+    return res, h, error(maxpos), reference
 
     
 if __name__ == "__main__":
