@@ -37,9 +37,9 @@ w0 = sp.simplify(scalar(l0, 1))
 w1 = sp.simplify(scalar(l1, 1));  
 
 print('x_0 = ' + sp.latex(x0))
-print('x_1 = ' + sp.latex(x0))
-print('w_0 = ' + sp.latex(x0))
-print('w_1 = ' + sp.latex(x0))
+print('x_1 = ' + sp.latex(x1))
+print('w_0 = ' + sp.latex(w0))
+print('w_1 = ' + sp.latex(w1))
 
 
 #sys.stdout.write
