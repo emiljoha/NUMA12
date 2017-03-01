@@ -1,16 +1,73 @@
 \begin{problem}
-
+Calculate the coefficients $w_0, w_1, x_0, x_1$, that make the
+approximation:
+\begin{equation*}
+  \int_0^1 x f(x) dx \approx w_0 f(x_0) + w_1 f(x_1)
+\end{equation*}
+Exact when $f \in \mathcal{P}_3$. Verify your solution by letting $f$
+be a general cubic polynomial. 
 \end{problem}
 
-
 \begin{solution}
-  \begin{align}
-     x_0 = &- \frac{\sqrt{6}}{10} + \frac{3}{5} \; & 
+  This exercise scream Gaussian quadrature as we have a evaluated $f$
+  in $(1 + 1)$ points and want it to be true for polynomials of degree
+  $(2 \times 1 + 1)$. Theorem 12.3 with the weight equal
+  to $x$ fits our problem perfectly.
+
+  We thus need to calculate a polynomial $\phi_2 = a + bx + x^2$
+  such that it is orthogonal to all polynomials in $\mathcal{P}_1$. We
+  choose to look for a monic polynomial for conveniences giving us a
+  unique solution. As $span(\{1, x\}) = \mathcal{P}_1$ we get:
+  \begin{align*}
+    \begin{cases}
+      (\phi_2, 1) = 0 \\
+      (\phi_2, x) = 0
+    \end{cases}
+    \leftrightarrow
+    \begin{cases}
+      \int_0^1 x (a + bx + x^2) dx = 0 \\
+      \int_0^1 x^2(a + bx + x^2) dx = 0
+    \end{cases} \leftrightarrow \\    
+    \begin{cases}
+      \frac{a}{2} + \frac{b}{3} + \frac{1}{4} = 0 \\
+      \frac{a}{3} + \frac{b}{4} + \frac{1}{5} = 0
+    \end{cases}  \leftrightarrow
+    \begin{cases}
+      a = \frac{3}{10} \\
+      b = - \frac{6}{5}
+    \end{cases} \leftrightarrow
+    \phi_2 = \frac{3}{10} - \frac{6}{5}x + x^2
+  \end{align*}
+
+  Now that we have $\phi_2$ we set $x_0$ and $x_1$ as its roots. To
+  get the $w_0$ and $w_1$ we need to evaluate the integral
+  $w_i = \int_0^1 x l_i dx$, where $l_i$ are the Lagrange
+  interpolation polynomials.
+  \begin{align*}
+    x_0 = &- \frac{\sqrt{6}}{10} + \frac{3}{5} \; & 
     w_0 = &- \frac{\sqrt{6}}{36} + \frac{1}{4}  \\
-    \nonumber
     x_1 = &\frac{\sqrt{6}}{10} + \frac{3}{5} \; &
     w_1 = & \frac{\sqrt{6}}{36} + \frac{1}{4}
-  \end{align}
+  \end{align*}
+  
+  \newpage
+  To check that this result is correct we compute the integral for a
+  general polynomial $f = a + bx + cx^2$.
+  \begin{align*}
+    w_0 f(x_0) + w_1 f(x_1)  = \\
+    \left(- \frac{\sqrt{6}}{36} + \frac{1}{4}\right) \left(a + b 
+                                    \left(- \frac{\sqrt{6}}{10} +
+                                    \frac{3}{5}\right) + c \left(-
+                                    \frac{\sqrt{6}}{10} +
+                                    \frac{3}{5}\right)^{2}\right) +
+                                    \left(\frac{\sqrt{6}}{36} +
+                                    \frac{1}{4}\right) \left(a + b
+                                    \left(\frac{\sqrt{6}}{10} +
+                                    \frac{3}{5}\right) + c
+                                    \left(\frac{\sqrt{6}}{10} +
+                                    \frac{3}{5}\right)^{2}\right) \\
+     = \frac{a}{2} + \frac{b}{3} + \frac{c}{4} = \int_0^1 x (a + bx + cx^2) dx \\
+  \end{align*}
 \end{solution}
 
 
