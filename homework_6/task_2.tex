@@ -1,9 +1,43 @@
 \begin{problem}
-
+Construct a program to perform Gaussian integration, with the following input:
+\begin{itemize}
+\item Interval of integration
+\item Function to be integrated
+\item Number of terms in the quadrature formula
+\end{itemize}
+According to Ramanujan the number of numbers between $a$ and $b$ that are either squares or sums of two squares is given approximately by
+\begin{equation*}
+0.764\int_a^b \frac{\text{dx}}{\sqrt{\ln x}}
+\end{equation*}
+Use your program to test this statement for $a=1$ and $b=30$
 \end{problem}
 
-
 \begin{solution}
+First of all, let us outline the basic theory behind the algorithm that we have implemented. The general formula for the Gauss quadrature is:
+\begin{equation*}
+\int_{-1}^1 f(x) \, \text{dx} \approx \sum_{i=1}^n f(x_i)w_i
+\end{equation*}
+We can change the interval to whatever we like by:
+\begin{equation}
+\int_a^b f(x) \, \text{dx} \approx \frac{b-a}{2} \sum_{i=1}^n w_i f\left(\frac{b-a}{2}x_i+\frac{a+b}{2}\right)
+\label{gaussquad}
+\end{equation}
+To calculate the nodes $x_i$ we take them as the roots of the Legendre polynomial of degree $n$, which is defined as:
+\begin{equation*}
+P_n(x) = \frac{1}{2^n} \sum_{k=0}^n \binom{n}{k} (x-1)^{n-k}(x+1)^k
+\end{equation*}
+Then, we construct the Lagrange polynomials $l_i$ and compute the weighs as:
+\begin{equation*}
+w_i = \int_{-1}^1 l_i \quad \forall i = 0, \ldots, n
+\end{equation*}
+Finally we put all of this together in equation \ref{gaussquad} to get the approximation of the integral.
 
+The algorithm seems simple at first but the actual implementation posed a few challenges. We first tried to find the roots of the Legendre polynomials exactly, but this turned to be disappointingly slow for degree greater than 5, we overcame this by turning to \texttt{numpy.roots} to find the roots numerically. We also did not succeed in finding a closed form for the integrals of the Lagrange polynomials, thus we integrated them symbolically. After these workarounds (and some other minor ones) we finally got a working script and calculated the integral, which turned out to be, with 15 terms in the quadrature formula:
+\begin{equation*}
+0.764 \int_1^{30} \frac{\text{dx}}{\sqrt{\ln x}} \approx 15.1713138457160
+\end{equation*}
+While the actual value, calculated manually, is $15$. This suggests that Ramanujan did a good job with his formula. Finally, here is our code:
+\lstinputlisting{code/task_2.py}
 \end{solution}
+\newpage
 
