@@ -44,16 +44,18 @@ Legendre polynomials exactly, but this turned to be disappointingly
 slow for degree greater than 5, we overcame this by turning to
 \texttt{numpy.roots} to find the roots numerically. We also did not
 succeed in finding a closed form for the integrals of the Lagrange
-polynomials, thus we integrated them symbolically. After these
-workarounds (and some other minor ones) we finally got a working
-script and calculated the integral, which turned out to be, with 15
-terms in the quadrature formula:
+polynomials, thus we integrated them symbolically as needed using the
+python library SymPy. After these workarounds (and some other minor
+ones) we finally got a working script and calculated the integral,
+which turned out to be, with 15 terms in the quadrature formula:
 \begin{equation*}
 0.764 \int_1^{30} \frac{\text{dx}}{\sqrt{\ln x}} \approx 15.1713138457160
 \end{equation*}
-While the actual value, calculated manually, is $15$. This suggests
+There exist $15$ numbers in $1, 2, \dots, 30$ which are either squares
+or sums of two squares. This suggests that our method is correct and
 that Ramanujan did a good job with his formula. Finally, here is our
-code: \lstinputlisting{code/task_2.py}
+code:
+\lstinputlisting{code/task_2.py}
 \end{solution}
 \newpage
 
