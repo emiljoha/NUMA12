@@ -1,7 +1,7 @@
 import sys
 import sympy as sp
 
-x, a, b, c = sp.symbols('x a b c')
+x, a, b, c, d = sp.symbols('x a b c d')
 
 # Choose Q2 to be monic
 Q2 = a + b*x + x**2
@@ -45,9 +45,9 @@ w1 = sp.simplify(scalar(l1, 1));
 
 #sys.stdout.write
 
-f = a + b*x + c*x**2
+f = a + b*x + c*x**2 + d*x**3
 approx = w0*f.subs(x, x0) + w1*f.subs(x, x1)
 print(sp.latex(approx))
-#print(sp.integrate(x*f, (x, 0, 1)))
+print(sp.integrate(x*f, (x, 0, 1)))
 print(sp.simplify(approx - sp.integrate(x*f, (x, 0, 1))) == 0)
 
