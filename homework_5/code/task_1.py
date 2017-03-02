@@ -31,18 +31,29 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
         x = symbols('x')
         for i in range(n):
             basis_symb.append(x**i)
-
-    a, b = intervall
-
-    #translate from sympy numpy functions
+            
+    basis = []
+    for base_s in basis_symb:
+        basis.append(lambdify(x, base_s, "numpy"))
+        
     f = lambdify(x, f_symb, "numpy")
 
-    basis = []
-    for i in range(n):
-        basis.append(lambdify(x, basis_symb[i], "numpy"))
+    a, b = intervall
         
-    hcoeff = lambdify(x, (-1)**x, "numpy")
-        
+    def hcoeff(vec):
+        res = [];
+        for k in vec:
+            res.append((-1)**k);
+        return res; 
+
+    def approx(coef, vec):
+        res = np.zeros(len(vec));
+        for i in range(len(coef)):
+            for j in range(len(vec)): 
+                res[j] += coef[i] * basis[i](vec[j]);
+        return res;
+    
+    
     matrix = np.zeros([n+1, n+1])
     grid = np.linspace(a, b, num=nsp)
     h = [];
@@ -60,19 +71,10 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
         res = np.linalg.solve(np.transpose(matrix), f(reference))
         h.append(res[n])
 
-        # Symbolic represenation of approximation
-        approx_symb = 0
-        for i in range(n):
-            approx_symb += res[i] * basis_symb[i]
-        #print(approx_symb)
-
-        # Construct symbolic representaion of error function
-        error_symb = (f_symb - approx_symb)
-        error = lambdify(x, error_symb, "numpy")
 
         # Find the max 
         max_error = 0
-        maxpos = grid[np.argmax(error(grid))]                
+        maxpos = grid[np.argmax(f(vec) - approx(np.erase(res)]                
         
         # Test if we are done. 
         for i in range(n):
