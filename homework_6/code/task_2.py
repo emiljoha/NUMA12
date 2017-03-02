@@ -23,19 +23,15 @@ def gauss(intervall, f, k):
     
     roots = numpy.roots(coefficients);
     
-    # lagrange polynomials
-    def lagrange(points):
-        l = [];
-        for i in range(len(points)):
-            li = 1
-            for j in range(len(points)):
-                if (i != j):
-                    li *= (x - points[j]) / (points[i] - points[j])
-                    li = sp.simplify(li)
-            l.append(li)
-        return l
+    lagpols = [];
+    for i in range(len(roots)):
+        li = 1
+        for j in range(len(roots)):
+            if (i != j):
+                li *= (x - roots[j]) / (roots[i] - roots[j])
+                li = sp.simplify(li)
+        lagpols.append(li)
 
-    lagpols = lagrange(roots);
     
     #Integrating the lagrange polynomials to find the weighs 
     weights = [];
