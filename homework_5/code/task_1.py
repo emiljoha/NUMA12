@@ -59,7 +59,9 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
     h = [];
     count = 0; 
 
-    while ( (len(h) < 2 or (abs(h[len(h)-1] - h[len(h) - 2]) > tolerance)) and count < 100):
+    while ( (len(h) < 2
+             or (abs(h[len(h)-1] - h[len(h) - 2]) > tolerance))
+            and count < 100):
         count += 1
         # Set up matrix from reference 
         for i in range(n):
@@ -72,9 +74,13 @@ def exchange_algorithm (f_symb, n, intervall, reference, tolerance, nsp, basis_s
         h.append(res[n])
 
 
-        # Find the max 
-        max_error = 0
-        maxpos = grid[np.argmax(f(vec) - approx(np.erase(res)]                
+        # Find the max
+        error_grid = f(grid) - approx(np.delete(res, -1), grid);
+        max_index = np.argmax(error_grid); 
+        maxpos = grid[max_index]; 
+        max_error = error_grid[max_index];
+        
+        print(max_error); 
         
         # Test if we are done. 
         for i in range(n):
