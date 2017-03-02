@@ -7,13 +7,14 @@ import numpy
 def gauss(intervall, f, k):
     a, b = intervall;
     x = sp.symbols('x');
-
+    
+    #Legendre polynomial
     Lk = 0;
     for i in range(k+1):
         Lk += scipy.special.binom(k, i)**2 * (x - 1)**(k - i) * (x + 1)**i;
     Lk *= 2**(-k);
 
-     
+    #We need to find the coefficients to use numpy.roots 
     coefficients = []
     for i in range(k):
         coefficients.append(sp.expand(Lk).coeff(x**(k-i)))
@@ -22,7 +23,7 @@ def gauss(intervall, f, k):
     
     roots = numpy.roots(coefficients);
     
-    # lagrangian polynomials
+    # lagrange polynomials
     def lagrange(points):
         l = [];
         for i in range(len(points)):
@@ -36,6 +37,7 @@ def gauss(intervall, f, k):
 
     lagpols = lagrange(roots);
     
+    #Integrating the lagrange polynomials to find the weighs 
     weights = [];
     for lag in lagpols:
         weights.append(sp.integrate(lag, (x, -1, 1)).evalf());
@@ -46,10 +48,12 @@ def gauss(intervall, f, k):
     return (b - a ) / 2 * res;  
 
 def func(val):
+    #Definition of the function to integrate
     return 0.764 * math.sqrt(math.log(val))**(-1);  
     
 if (__name__ == "__main__"):
-    print(gauss([1, 30], func, 30));
-    x = sp.symbols('x'); 
+    print(gauss([1, 30], func, 15));
+    x = sp.symbols('x');
+    #integrate with sympy to compare results
     print(sp.integrate(0.764 / sp.sqrt(sp.log(x)), (x, 1, 30)).evalf())
     
