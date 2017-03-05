@@ -17,10 +17,18 @@ This gives us the values $a=0.4150, b = -3.2803, c = 5.2091$, thus the best appr
 \begin{equation*}
 p^*(x)=0.4150x^2 -3.2803x+5.2091
 \end{equation*}
-By the characterization theorem we see that our polynomial is indeed the best approximation:
+By the characterization theorem, as the set $\mathcal{Z} = \{\xi_0, \xi_1, \xi_2 \}$ is composed of only discrete points, we have to show that:
 \begin{equation*}
-integrals
+\int_{\pi/3}^{5\pi/3} s^*(x)p(x) \, \text{dx} = 0 \quad \forall p \in \mathcal{P}_2
 \end{equation*}
-and as we are approximating from the space of polynomials of degree at most two, which is a Haar space, we have by theorem (14.3 in Powell's book) that our best approximation is unique.
+where $s^*$ is defined as
+\begin{align*}
+cases
+\end{align*}
+It suffices to prove that for the monomial basis:
+\begin{equation*}
+proof
+\end{equation*}
+As for uniqueness, we are approximating from the space of polynomials of degree at most two, which is a Haar space, therefore by theorem (14.3 in Powell's book) our best approximation is unique.
 \end{solution}
 
