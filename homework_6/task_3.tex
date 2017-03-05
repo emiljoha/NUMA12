@@ -9,9 +9,9 @@ By theorem (14.5 in Powell's book) if the approximation space is the space of po
 \end{equation*}
 The polynomial we are trying to calculate has the form $ax^2+bx+c$, by interpolating at the values calculated above $(p^*(\xi_i) = f(\xi_i))$ and solving the linear system, we should get the best approximation:
 \begin{align*}
-a(\frac{\pi(3-\sqrt{2})}{3})^2+b(\frac{\pi(3-\sqrt{2})}{3})+c &= \sin(\frac{\pi(3-\sqrt{2})}{3}) + \cos(\frac{\pi(3-\sqrt{2})}{3}) \\
+a\left(\frac{\pi(3-\sqrt{2})}{3}\right)^2+b\left(\frac{\pi(3-\sqrt{2})}{3}\right)+c &= \sin\left(\frac{\pi(3-\sqrt{2})}{3}\right) + \cos\left(\frac{\pi(3-\sqrt{2})}{3}\right) \\
 a \pi + b\pi +c &=-1 \\
-a(\frac{\pi(3+\sqrt{2})}{3})^2 +b(\frac{\pi(3+\sqrt{2})}{3}) + c &= \sin(\frac{\pi(3+\sqrt{2})}{3}) + \cos(\frac{\pi(3+\sqrt{2})}{3})
+a\left(\frac{\pi(3+\sqrt{2})}{3}\right)^2 +b\left(\frac{\pi(3+\sqrt{2})}{3}\right) + c &= \sin\left(\frac{\pi(3+\sqrt{2})}{3}\right) + \cos\left(\frac{\pi(3+\sqrt{2})}{3}\right)
 \end{align*}
 This gives us the values $a=0.4150, b = -3.2803, c = 5.2091$, thus the best approximation polynomial is:
 \begin{equation*}
@@ -23,12 +23,16 @@ By the characterization theorem, as the set $\mathcal{Z} = \{\xi_0, \xi_1, \xi_2
 \end{equation*}
 where $s^*$ is defined as
 \begin{align*}
-cases
+s^*(x)=
+\begin{cases}
+(\phi_2, 1) = 0 \\
+(\phi_2, x) = 0
+\end{cases}
 \end{align*}
-It suffices to prove that for the monomial basis:
-\begin{equation*}
+It suffices to prove it for the monomial basis:
+\begin{align*}
 proof
-\end{equation*}
+\end{align*}
 As for uniqueness, we are approximating from the space of polynomials of degree at most two, which is a Haar space, therefore by theorem (14.3 in Powell's book) our best approximation is unique.
 \end{solution}
 
