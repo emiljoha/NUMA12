@@ -3,11 +3,23 @@ Find the best $L_1$ approximation to the function $f(x) = \sin(x) + \cos(x)$ in 
 \end{problem}
 
 \begin{solution}
-Blah blah blah
-
+By theorem (14.5 in Powell's book) if the approximation space is the space of polynomials of degree at most $n$, if $e^*$ has exactly $n+1$ zeros, then they are the extrema of the Chebyshev polynomial $T_{n+2}$. Therefore, by changing the interval from $[\pi/3, 5\pi/3]$ to $[-1,1]$ and finding the extrema, we get that the zeros of the error function are:
+\begin{equation*}
+\xi_0 = \frac{\pi(3-\sqrt{2})}{3}, \quad \xi_1 = \pi, \quad \xi_2 = \frac{\pi(3+\sqrt{2})}{3}.
+\end{equation*}
+The polynomial we are trying to calculate has the form $ax^2+bx+c$, by interpolating at the values calculated above $(p^*(\xi_i) = f(\xi_i))$ and solving the linear system, we should get the best approximation:
+\begin{align*}
+a(\frac{\pi(3-\sqrt{2})}{3})^2+b(\frac{\pi(3-\sqrt{2})}{3})+c &= \sin(\frac{\pi(3-\sqrt{2})}{3}) + \cos(\frac{\pi(3-\sqrt{2})}{3}) \\
+a \pi + b\pi +c &=-1 \\
+a(\frac{\pi(3+\sqrt{2})}{3})^2 +b(\frac{\pi(3+\sqrt{2})}{3}) + c &= \sin(\frac{\pi(3+\sqrt{2})}{3}) + \cos(\frac{\pi(3+\sqrt{2})}{3})
+\end{align*}
+This gives us the values $a=0.4150, b = -3.2803, c = 5.2091$, thus the best approximation polynomial is:
+\begin{equation*}
+p^*(x)=0.4150x^2 -3.2803x+5.2091
+\end{equation*}
 By the characterization theorem we see that our polynomial is indeed the best approximation:
 \begin{equation*}
-char theorem eq
+integrals
 \end{equation*}
 and as we are approximating from the space of polynomials of degree at most two, which is a Haar space, we have by theorem (14.3 in Powell's book) that our best approximation is unique.
 \end{solution}
