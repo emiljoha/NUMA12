@@ -1,43 +1,33 @@
 \begin{problem}
-  Show that $T_n$ and $T_{n−1}$ have no common zeros.
+  Show that $T_n$ and $T_{n-1}$ have no common zeros.
 \end{problem}
 
 \begin{solution}
-  First we assume there is an number $\theta$ such that
-  equation~\ref{eq:CommonZero} holds. If there is such a $\theta$ then
-  there is such a $x = \cos\theta$ so that $T_n$ and $T_{n−1}$ have
-  common zeros. We will thus need to show that this leads to a
-  contradiction.
+  First we assume there is an number $\theta$ such that $T_n$ and $T_{n-1}$ have common zeros.
+  If there is such a $\theta$ then
   
-  \begin{align}
+  \begin{align*}
     \label{eq:CommonZero}
     \begin{cases}
       T_n(\cos\theta) = \cos n\theta = 0 \\
-      T_{n+1}(\cos\theta) = \cos (n+1)\theta = 0
+      T_{n-1}(\cos\theta) = \cos (n-1)\theta = 0
     \end{cases}
     \Leftrightarrow
     \begin{cases}
-      n\theta = \frac{\pi}{2} + 2\pi k \\
-      (n+1)\theta = \frac{\pi}{2} + 2\pi k^{\prime}
+      n\theta = \frac{\pi}{2} + \pi k \\
+      (n-1)\theta = \frac{\pi}{2} + \pi k^{\prime}
     \end{cases} \\
-    \nonumber
-    \Leftrightarrow
-    2 \pi k = 2 \pi k^{\prime} - \theta 
-    \Leftrightarrow
-    \theta = 2 \pi (k^{\prime} - k) \\
-    \label{eq:contradiction}
-    \Rightarrow
-    \cos n\theta = {(-1)}^{n(k^{\prime} - k)} \neq 0 
-  \end{align}
+  \end{align*}
 
-  The result of the assumption of existence leads to the contradiction
-  in equation~\ref{eq:contradiction}. Thus our assumption must be
-  false there is no $\theta$ such that it is a root to both $T_n$ and
-  $T_{n−1}$. Note that not all $x$ can be written as
+  Therefore $\theta = \pi(-k^{\prime} + k)$. If we insert this at $T_n$ we get:
+  \begin{equation*}
+  T_n(\cos \theta) = \cos(n\pi(-k^{\prime} + k))
+  \end{equation*} which is $\pm 1$ depending on the parameters, but never zero,
+  therefore, there is no $\theta$ that is the root of both $T_n$ and $T_{n-1}$
+  at the same time. Note that not all $x$ can be written as
   $x = \cos \theta$ but only $x \in [-1, 1]$. However this is the
-  interval in which Chebyshev polynomials are studied and what happens
-  outside is of little importance.
-\end{solution}
+  interval in which Chebyshev polynomials are defined.
+  \end{solution}
 
 %%% Local Variables:
 %%% mode: latex
