@@ -1,6 +1,5 @@
 ## Task 1: The exchange algorithm
 
-from sympy import symbols, lambdify, sin
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -116,12 +115,11 @@ if __name__ == "__main__":
             for y in x:
                 res.append(1 / (1 + 25*x**2));
             return res; 
-    
-    x = symbols('x')
-    n = 40
+
+    n = 3
     intervall = (0, 1)
     reference = np.linspace(0, 1, n+1)
-    tolerance = 10**(-10)
+    tolerance = 0.005
     nsp = 100
     coef, error, count, h, reference = exchange_algorithm(f, n, intervall, reference, tolerance, nsp)
     print("Coefficients: " + str(coef))
