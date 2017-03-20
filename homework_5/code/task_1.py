@@ -113,7 +113,7 @@ if __name__ == "__main__":
         except TypeError:
             res = [];
             for y in x:
-                res.append(1 / (1 + 25*x**2));
+                res.append(1 / (1 + 25*y**2));
             return res; 
 
     n = 3
