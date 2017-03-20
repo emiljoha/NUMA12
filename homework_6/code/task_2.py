@@ -48,8 +48,10 @@ def func(val):
     return 0.764 * math.sqrt(math.log(val))**(-1);  
     
 if (__name__ == "__main__"):
-    print(gauss([1, 30], func, 15));
-    x = sp.symbols('x');
+    intervall = [1, 30]
+    terms = 10
+    print(gauss(intervall, func, terms));
     #integrate with sympy to compare results
+    x = sp.symbols('x');
     print(sp.integrate(0.764 / sp.sqrt(sp.log(x)), (x, 1, 30)).evalf())
     
